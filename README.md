@@ -15,9 +15,10 @@ The notebook uses a stratified 80/20 train-test split with `random_state=42`. Th
 
 ## GitHub Repository Link
 
-GitHub repository: `https://github.com/<your-username>/<your-repository>`
+GitHub repository: `https://github.com/2025ac05470/ml-assingment2`
 
-Replace the placeholder URL with the repository's public GitHub URL after creating or connecting the repository.
+## Streamlit live URL
+URL: https://2025ac05470.streamlit.app/
 
 ## Comparison Table
 
