@@ -1,4 +1,14 @@
-# Breast Cancer Classification Pipeline
+| Name | BITS ID | Subject |
+|---|---|---|
+| Dheeraj Jha | 2025ac05470 | ML |
+
+**GitHub Repository:** https://github.com/2025ac05470/ml-assingment2
+
+**Streamlit App:** https://2025ac05470.streamlit.app/
+
+---
+
+# Breast Cancer Classification Pipeline - ML Assingment
 
 ## Problem Statement
 
@@ -88,3 +98,19 @@ Upload `test_data.csv`, select any of the five trained models, and view its metr
 ├── requirements.txt
 └── test_data.csv
 ```
+
+## Screenshot
+
+![1.png](1.png)
+
+![2.png](2.png)
+
+![3.png](3.png)
+
+![4.png](4.png)
+
+![5.png](5.png)
+
+![6.png](6.png)
+
+![7.png](7.png)
