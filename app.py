@@ -84,12 +84,16 @@ if default_test_path.exists():
 uploaded_file = st.file_uploader("Upload test_data.csv", type="csv")
 selected_model = st.selectbox("Model", list(MODEL_FILES))
 
-if uploaded_file is None:
+if uploaded_file is not None:
+    test_data_source = uploaded_file
+elif default_test_path.exists():
+    test_data_source = default_test_path
+else:
     st.info("Upload test_data.csv to display evaluation metrics and visualizations.")
     st.stop()
 
 try:
-    test_data = pd.read_csv(uploaded_file)
+    test_data = pd.read_csv(test_data_source)
     missing_features = sorted(set(feature_names) - set(test_data.columns))
     if missing_features or "target" not in test_data.columns:
         missing = missing_features + ([] if "target" in test_data.columns else ["target"])
@@ -127,3 +131,14 @@ report = classification_report(
     zero_division=0,
 )
 st.dataframe(pd.DataFrame(report).transpose().round(4), use_container_width=True)
+
+comparison_results = []
+for model_name, candidate_model in models.items():
+    candidate_metrics, _ = calculate_metrics(candidate_model, features, target)
+    comparison_results.append({"Model": model_name, **candidate_metrics})
+
+st.subheader("Model Comparison")
+st.dataframe(
+    pd.DataFrame(comparison_results).set_index("Model").round(4),
+    use_container_width=True,
+)
