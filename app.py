@@ -84,13 +84,17 @@ if default_test_path.exists():
 uploaded_file = st.file_uploader("Upload test_data.csv", type="csv")
 selected_model = st.selectbox("Model", list(MODEL_FILES))
 
-if uploaded_file is not None:
-    test_data_source = uploaded_file
-elif default_test_path.exists():
-    test_data_source = default_test_path
-else:
+if uploaded_file is None:
     st.info("Upload test_data.csv to display evaluation metrics and visualizations.")
     st.stop()
+
+test_data_source = uploaded_file
+
+# elif default_test_path.exists():
+#     test_data_source = default_test_path
+# else:
+#     st.info("Upload test_data.csv to display evaluation metrics and visualizations.")
+#     st.stop()
 
 try:
     test_data = pd.read_csv(test_data_source)
